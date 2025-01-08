@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Papa and Gigi</title>
+    <title>Paga and Gigi</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://www.pngitem.com/pimgs/m/195-1953023_sun-logo-png-clipart-transparent-png.png" type="image/png">
+    
+    <!-- Reality Font (Replace this URL with your font if needed) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
@@ -13,14 +19,35 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
-        h1 {
-            font-family: Arial, sans-serif;
-            color: #ffffff;
+
+        .rainbow-text {
+            font-family: 'Reality', sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbowAnimation 3s infinite linear, shootingEffect 1.5s infinite ease-in-out;
+        }
+
+        @keyframes rainbowAnimation {
+            0% { background-position: 0%; }
+            100% { background-position: 400%; }
+        }
+
+        @keyframes shootingEffect {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-10px); opacity: 0.7; }
+            100% { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to a Light Green Background!</h1>
+    <div class="rainbow-text">
+        Welcome to Paga and Gigi's Site!
+    </div>
 </body>
 </html>
