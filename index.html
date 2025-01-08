@@ -6,9 +6,9 @@
     <title>Paga and Gigi</title>
     <!-- Favicon -->
     <link rel="icon" href="https://png.pngtree.com/png-vector/20220705/ourmid/pngtree-sun-icon-logo-png-png-image_5687131.png" type="image/png">
-    
-    <!-- Reality Font (Replace this URL with your font if needed) -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Bowlby One Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -23,30 +23,60 @@
         }
 
         .rainbow-text {
-            font-family: 'Reality', sans-serif;
-            font-size: 2.5rem;
+            font-family: 'Bowlby One', cursive;
+            font-size: 3rem;
             font-weight: bold;
-            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-            background-size: 400%;
+            text-align: center;
+            position: relative;
+            color: transparent;
+            background-image: linear-gradient(
+                to right,
+                red,
+                orange,
+                yellow,
+                green,
+                blue,
+                indigo,
+                violet
+            );
+            background-clip: text;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbowAnimation 3s infinite linear, shootingEffect 1.5s infinite ease-in-out;
+            animation: fadeInRainbow 3s ease-in-out forwards;
+            opacity: 0;
         }
 
-        @keyframes rainbowAnimation {
-            0% { background-position: 0%; }
-            100% { background-position: 400%; }
+        .rainbow-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            color: transparent;
+            -webkit-text-stroke: 2px #00000030; /* Adds a subtle outline for visibility */
+            z-index: -1;
         }
 
-        @keyframes shootingEffect {
-            0% { transform: translateY(0); opacity: 1; }
-            50% { transform: translateY(-10px); opacity: 0.7; }
-            100% { transform: translateY(0); opacity: 1; }
+        @keyframes fadeInRainbow {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) rotate(-5deg);
+                filter: blur(8px);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.1);
+                filter: blur(2px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="rainbow-text">
+    <div class="rainbow-text" data-text="Welcome to Paga and Gigi's Site!">
         Welcome to Paga and Gigi's Site!
     </div>
 </body>
